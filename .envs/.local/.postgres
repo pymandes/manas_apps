@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=manas_apps
+POSTGRES_USER=KEGhPIBAyzzDIDMWrkyhrcaqyAOLBYqj
+POSTGRES_PASSWORD=qo12kZxbwzOdI7I1mNfCb1mzn5MsZ52Vu5UlLOUjmyqASegh7M8zygOos8LArjEJ
