@@ -1,1 +1,2 @@
-release: python manage.py migrate: gunicorn config.wsgi:application -k uvicorn.workers.UvicornWorker
+release: python manage.py migrate
+web: gunicorn config.wsgi:application
