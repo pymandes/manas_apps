@@ -79,7 +79,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = env.bool(
 # aws_s3_domain = AWS_S3_CUSTOM_DOMAIN or f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
 # STATIC
 # ------------------------
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 # MEDIA
 # ------------------------------------------------------------------------------
 # DEFAULT_FILE_STORAGE = "manas_apps.utils.storages.MediaRootS3Boto3Storage"
