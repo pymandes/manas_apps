@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Add Expense {% endblock %}
+
+{% block content %}
+  <h1>Add Expense</h1>
+  <div class="container gap-3">
+    <div class="p-2 row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Add Expenses</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Add new expenses inline</h6>
+            <form class="row gy-2 gx-3 align-items-center">
+              {% csrf_token %}
+              <div class="col-auto">
+                <label class="visually-hidden" for="autoSizingInput">Name</label>
+                <input type="text" class="form-control" id="autoSizingInput" placeholder="Name">
+              </div>
+              <div class="col-auto">
+                <label class="visually-hidden" for="autoSizingInput">Estimated</label>
+                <input type="text" class="form-control" id="autoSizingInput" placeholder="Estimated">
+              </div>
+              <div class="col-auto">
+                <label class="visually-hidden" for="autoSizingInput">Actual</label>
+                <input type="text" class="form-control" id="autoSizingInput" placeholder="Actual">
+              </div>
+              <div class="col-auto">
+                <label class="visually-hidden" for="autoSizingSelect">Type</label>
+                <select class="form-select" id="autoSizingSelect">
+                  <option selected>Choose....</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-auto">
+                <label class="visually-hidden" for="autoSizingSelect">Category</label>
+                <select class="form-select" id="autoSizingSelect">
+                  <option selected>Choose....</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-auto">
+                <button type="submit" class="btn btn-primary"> Add </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>      
+    </div>
+    <div class="p-2 row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Recent Expenses</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Recently added transactions</h6>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}
