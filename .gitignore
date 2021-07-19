@@ -278,3 +278,4 @@ manas_apps/media/
 .env
 .envs/*
 !.envs/.local/
+mapps-venv/
