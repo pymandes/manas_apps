@@ -44,7 +44,7 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db("DATABASE_URL"),
+    "default": env.db("DATABASE_URL", "sqlite:///mappsdb.db"),
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 

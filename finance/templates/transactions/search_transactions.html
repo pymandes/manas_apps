@@ -1,0 +1,100 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block title %} Search
+Transactions {% endblock %} {% block content %}
+<div class="container gap-3">
+  <div class="p-2 row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Search Transactions</h3>
+          <h6 class="card-subtitle mb-2 text-muted">
+            Use the fields to search
+          </h6>
+          <form class="form-inline", action="{% url 'finance:transaction_results' %}" method="GET">
+            {% csrf_token %}
+            <!-- {{ form|crispy }} -->
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label for="tname" class="form-label">Name</label>
+                <input type="text" class="form-control" id="tname" />
+              </div>
+              <div class="col-md-4">
+                <label for="tvalue" class="form-label">Value</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tvalue"
+                />
+              </div>
+              </div>
+              <div class="row g-3">
+              <div class="col-md-4">
+                <label for="tto" class="form-label">To</label>
+                <select id="tto" class="form-select">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="tfrom" class="form-label">From</label>
+                <select id="tfrom" class="form-select">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="col-8">
+                <button type="submit" class="btn btn-outline-primary">
+                  Search
+                </button>
+              </div>
+            </div>
+            <!-- <button type="submit" class="btn btn-outline-primary">Search</button> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-2 row justify-content-center">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Results</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            Trnsaction results
+          </h6>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Category</th>
+                <th scope="col">Amount</th>
+                <th scope="col">From</th>
+                <th scope="col">To</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                  <th scope="row"><a href="">{{ forloop.counter }}</a></th>
+                  <td>{{ transaction.transaction_date|date:"d M Y" }}</td>
+                  <td>{{ transaction.name }}</td>
+                  <td>{{ transaction.type }}</td>
+                  <td>{{ transaction.category }}</td>
+                  <td>{{ transaction.amount }}</td>
+                  <td>{{ transaction.from }}</td>
+                  <td>{{ transaction.to }}</td>
+                  <td><a class="btn btn-danger btn-sm" href="" role="button">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -279,3 +279,4 @@ manas_apps/media/
 .envs/*
 !.envs/.local/
 mapps-venv/
+*.db
